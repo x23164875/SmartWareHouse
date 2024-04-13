@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9002bc00-3f88-458f-a80e-2177f0f241c6" name="Changes" comment="first">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StockTrackingServiceGrpc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/proto/StockTrackingService.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/SmartWareHouse.proto" beforeDir="false" />
+    <list default="true" id="9002bc00-3f88-458f-a80e-2177f0f241c6" name="Changes" comment="second">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StockItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StockItemOrBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StockQueryRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StockQueryRequestOrBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StockStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StockStatusOrBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/StockTrackingServiceProto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/StockTrackingServiceGrpc.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +41,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.SmartWareHouse [clean].executor": "Run",
+    "Maven.SmartWareHouse [compile].executor": "Run",
     "Maven.SmartWareHouse [protobuf:compile-custom].executor": "Run",
     "Maven.SmartWareHouse [protobuf:compile].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -73,7 +76,7 @@
       <workItem from="1712949083159" duration="9320000" />
       <workItem from="1712964807620" duration="734000" />
       <workItem from="1712965571356" duration="19000" />
-      <workItem from="1712965598165" duration="7134000" />
+      <workItem from="1712965598165" duration="7728000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
@@ -83,7 +86,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712956031666</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="second">
+      <option name="closed" value="true" />
+      <created>1713048070571</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713048070572</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,6 +103,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first" />
-    <option name="LAST_COMMIT_MESSAGE" value="first" />
+    <MESSAGE value="second" />
+    <option name="LAST_COMMIT_MESSAGE" value="second" />
   </component>
 </project>
