@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.example";
+option java_outer_classname = "ReplenishmentServiceProto";
+
+// Replenishment request definition
+message ReplenishmentRequest {
+  int32 product_id = 1;
+  string product_name = 2;
+  int32 required_quantity = 3;
+}
+
+// Replenishment status definition
+message ReplenishmentStatus {
+  int32 product_id = 1;
+  int32 required_quantity = 2;
+  string status = 3;               // ordered/ shipped/ received
+  string estimated_arrival = 4;    // estimated time of arrival
+
+}
+
+// Service definition
+service ReplenishmentService {
+  // bidirectional streaming RPC: Replenishment requests and status updates interact in real time
+  rpc ManageReplenishment(stream ReplenishmentRequest) returns (stream ReplenishmentStatus);
+}

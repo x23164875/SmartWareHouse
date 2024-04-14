@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.example";
+option java_outer_classname = "OrderServiceProto";
+
+// order definition
+message Order {
+  int32 order_id = 1;
+  int32 product_id = 2;
+  string product_name = 3;
+  int32 product_quantity = 4;
+  string customer_name = 5;
+  int32 total_price = 6;
+  string order_status = 7; // pending
+}
+
+//// 定义订单中的单个商品
+//message OrderItem {
+//  int32 product_id = 1;
+//  string product_name = 2;
+//  int32 quantity = 3;
+//  float price = 4;
+//}
+
+// Service definition
+service OrderService {
+  // client-side streaming RPC: Client sends a series of orders
+  rpc StreamOrders(stream Order) returns (OrderConfirmation);
+//  // 简单RPC，查询订单状态
+//  rpc GetOrderStatus(OrderRequest) returns (OrderStatus);
+//  // 服务器端流式RPC，用于发送订单状态更新
+//  rpc SubscribeOrderStatus(OrderRequest) returns (stream OrderStatusUpdate);
+}
+
+//// 用于请求订单状态的消息格式
+//message OrderRequest {
+//  int32 order_id = 1;  // 请求特定订单的ID
+//}
+
+//// 订单状态返回信息
+//message OrderStatus {
+//  int32 order_id = 1;     // 订单ID
+//  string status = 2;      // 当前状态
+//}
+
+// Confirm that the order transfer is successful
+message OrderConfirmation {
+  string message = 1;  //
+}
+
+//// 订单状态更新，用于服务器端流
+//message OrderStatusUpdate {
+//  int32 order_id = 1;     // 订单ID
+//  string status = 2;      // 新的状态
+//  string update_time = 3; // 更新时间
+//}
