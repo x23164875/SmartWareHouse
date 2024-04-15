@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9002bc00-3f88-458f-a80e-2177f0f241c6" name="Changes" comment="forth">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ReplenishmentServiceClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ReplenishmentServiceServer.java" afterDir="false" />
+    <list default="true" id="9002bc00-3f88-458f-a80e-2177f0f241c6" name="Changes" comment="fifth">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/ReplenishmentService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/ReplenishmentService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OrderServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/OrderServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OrderServiceServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/OrderServiceServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/OrderService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/OrderService.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +73,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ReplenishmentServiceClient">
+  <component name="RunManager" selected="Application.OrderServiceClient">
     <configuration name="OrderServiceClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.OrderServiceClient" />
       <module name="SmartWareHouse" />
@@ -113,19 +113,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReplenishmentServiceServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.ReplenishmentServiceServer" />
-      <module name="SmartWareHouse" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="StockTrackingServiceClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.StockTrackingServiceClient" />
       <module name="SmartWareHouse" />
@@ -139,13 +126,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StockTrackingServiceServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.StockTrackingServiceServer" />
+      <module name="SmartWareHouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ReplenishmentServiceClient" />
-        <item itemvalue="Application.ReplenishmentServiceServer" />
-        <item itemvalue="Application.OrderServiceServer" />
         <item itemvalue="Application.OrderServiceClient" />
+        <item itemvalue="Application.OrderServiceServer" />
         <item itemvalue="Application.StockTrackingServiceClient" />
+        <item itemvalue="Application.StockTrackingServiceServer" />
+        <item itemvalue="Application.ReplenishmentServiceClient" />
       </list>
     </recent_temporary>
   </component>
@@ -178,6 +178,8 @@
       <workItem from="1713210950788" duration="339000" />
       <workItem from="1713211297445" duration="682000" />
       <workItem from="1713211991494" duration="53000" />
+      <workItem from="1713212054152" duration="1387000" />
+      <workItem from="1713213460673" duration="5433000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
@@ -251,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713135890811</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fifth">
+      <option name="closed" value="true" />
+      <created>1713212106474</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713212106474</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +273,7 @@
     <MESSAGE value="second" />
     <MESSAGE value="third" />
     <MESSAGE value="forth" />
-    <option name="LAST_COMMIT_MESSAGE" value="forth" />
+    <MESSAGE value="fifth" />
+    <option name="LAST_COMMIT_MESSAGE" value="fifth" />
   </component>
 </project>

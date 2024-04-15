@@ -4,12 +4,15 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
 
+import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class OrderServiceClient {
 
     private final ManagedChannel channel;
     private final OrderServiceGrpc.OrderServiceStub asyncStub;
+    private int orderId = 1;
 
     public OrderServiceClient(String host, int port) {
         channel = ManagedChannelBuilder.forAddress(host, port)
@@ -41,13 +44,41 @@ public class OrderServiceClient {
         };
 
         StreamObserver<Order> requestObserver = asyncStub.streamOrders(responseObserver);
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
         try {
-            // Send multiple orders
-            requestObserver.onNext(Order.newBuilder().setOrderId(1).setProductId(1).setProductName("Printer").setProductQuantity(7).setCustomerName("Anda Brown").setTotalPrice(350).setOrderStatus("pending").build());
-            requestObserver.onNext(Order.newBuilder().setOrderId(2).setProductId(1).setProductName("Printer").setProductQuantity(5).setCustomerName("Bob Smith").setTotalPrice(250).setOrderStatus("pending").build());
+            String addMore = "y";
+            do {
+                System.out.println("Welcome to the smart ordering platform, " +
+                        "please enter the product information you want to order");
+                System.out.println("Product ID:");
+                int productId = Integer.parseInt(scanner.nextLine());
+                System.out.println("Product name:");
+                String productName = scanner.nextLine();
+                System.out.println("Product quantity:");
+                int quantity = Integer.parseInt(scanner.nextLine());
+                System.out.println("Customer name:");
+                String customerName = scanner.nextLine();
+
+                int totalPrice = 200 + random.nextInt(500);
+                String orderStatus = "pending";
+
+                Order order = Order.newBuilder()
+                        .setOrderId(orderId++)
+                        .setProductId(productId)
+                        .setProductName(productName)
+                        .setProductQuantity(quantity)
+                        .setCustomerName(customerName)
+                        .setTotalPrice(totalPrice)
+                        .setOrderStatus(orderStatus)
+                        .build();
+                requestObserver.onNext(order);
+
+                System.out.println("Continue ordering? (y/n)");
+                addMore = scanner.nextLine();
+            }while (addMore.equalsIgnoreCase("y"));
             // Mark the end of requests
             requestObserver.onCompleted();
-
             // Sleep for a bit to ensure the server responds.
             Thread.sleep(1000);
         } catch (RuntimeException e) {

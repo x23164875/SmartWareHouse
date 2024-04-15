@@ -46,7 +46,15 @@ public class OrderServiceServer {
             return new StreamObserver<Order>() {
                 @Override
                 public void onNext(Order order) {
-                    System.out.println("Received order from client: " + order.getOrderId());
+                    System.out.println("Received an order from the client: ");
+                    System.out.println("Order ID: " + order.getOrderId());
+                    System.out.println("Product ID: " + order.getProductId());
+                    System.out.println("Product Name: " + order.getProductName());
+                    System.out.println("Quantity: " + order.getProductQuantity());
+                    System.out.println("Customer Name: " + order.getCustomerName());
+                    System.out.println("Total Price: " + order.getTotalPrice());
+                    System.out.println("Order Status: " + order.getOrderStatus());
+                    System.out.println("-------------------------------------------------------");
                 }
 
                 @Override
