@@ -4,7 +4,7 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
 
-
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class StockTrackingServiceClient {
@@ -26,10 +26,10 @@ public class StockTrackingServiceClient {
                 .setProductName(productName)
                 .build();
         StockStatus response = blockingStub.queryStock(request);
-        System.out.println("Received response: Product ID: " + response.getProductId()
-                + ", Product Name: " + response.getProductName()
-                + ", Quantity: " + response.getCurrentQuantity()
-                + ", Status: " + response.getStatus());
+        System.out.println("Received response: \nProduct ID: " + response.getProductId()
+                + "\nProduct Name: " + response.getProductName()
+                + "\nQuantity: " + response.getCurrentQuantity()
+                + "\nStatus: " + response.getStatus());
     }
 
     // server-side streaming RPC: Send inventory status regularly
@@ -40,10 +40,10 @@ public class StockTrackingServiceClient {
         StreamObserver<StockStatus> responseObserver = new StreamObserver<StockStatus>() {
             @Override
             public void onNext(StockStatus value) {
-                System.out.println("Stream response: Product ID: " + value.getProductId()
-                        + ", Product Name: " + value.getProductName()
-                        + ", Quantity: " + value.getCurrentQuantity()
-                        + ", Status: " + value.getStatus());
+                System.out.println("Stream response: \nProduct ID: " + value.getProductId()
+                        + "\nProduct Name: " + value.getProductName()
+                        + "\nQuantity: " + value.getCurrentQuantity()
+                        + "\nStatus: " + value.getStatus());
             }
 
             @Override
@@ -65,8 +65,26 @@ public class StockTrackingServiceClient {
 
     public static void main(String[] args) throws InterruptedException {
         StockTrackingServiceClient client = new StockTrackingServiceClient("localhost", 9090);
-        client.queryStock("printer");
-        client.subscribeStockUpdates("printer");
+
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Welcome to the Smart Warehouse Stock Tracking platform! " +
+                    "\nEnter 1 to query stock " +
+                    "\nEnter 2 to subscribe to real-time stock updates ");
+            String choice = scanner.nextLine();
+
+            if ("1".equals(choice)) {
+                System.out.println("Product name:");
+                String productName = scanner.nextLine();
+                client.queryStock(productName);
+            } else if ("2".equals(choice)) {
+                System.out.println("Product name:");
+                String productName = scanner.nextLine();
+                client.subscribeStockUpdates(productName);
+            } else {
+                break;
+            }
+        }
         client.shutdown();
     }
 }

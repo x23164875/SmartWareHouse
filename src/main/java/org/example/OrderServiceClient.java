@@ -49,7 +49,7 @@ public class OrderServiceClient {
         try {
             String addMore = "y";
             do {
-                System.out.println("Welcome to the smart ordering platform, " +
+                System.out.println("Welcome to the smart warehouse ordering platform, " +
                         "please enter the product information you want to order");
                 System.out.println("Product ID:");
                 int productId = Integer.parseInt(scanner.nextLine());

@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9002bc00-3f88-458f-a80e-2177f0f241c6" name="Changes" comment="fifth">
+    <list default="true" id="9002bc00-3f88-458f-a80e-2177f0f241c6" name="Changes" comment="sixth">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OrderServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/OrderServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/OrderServiceServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/OrderServiceServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/OrderService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/OrderService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/StockTrackingServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/StockTrackingServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/StockTrackingServiceServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/StockTrackingServiceServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +73,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.OrderServiceClient">
+  <component name="RunManager" selected="Application.StockTrackingServiceClient">
     <configuration name="OrderServiceClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.OrderServiceClient" />
       <module name="SmartWareHouse" />
@@ -141,10 +141,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.OrderServiceClient" />
-        <item itemvalue="Application.OrderServiceServer" />
         <item itemvalue="Application.StockTrackingServiceClient" />
         <item itemvalue="Application.StockTrackingServiceServer" />
+        <item itemvalue="Application.OrderServiceClient" />
+        <item itemvalue="Application.OrderServiceServer" />
         <item itemvalue="Application.ReplenishmentServiceClient" />
       </list>
     </recent_temporary>
@@ -179,7 +179,7 @@
       <workItem from="1713211297445" duration="682000" />
       <workItem from="1713211991494" duration="53000" />
       <workItem from="1713212054152" duration="1387000" />
-      <workItem from="1713213460673" duration="5433000" />
+      <workItem from="1713213460673" duration="9641000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
@@ -261,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713212106474</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="sixth">
+      <option name="closed" value="true" />
+      <created>1713218920530</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713218920530</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +282,7 @@
     <MESSAGE value="third" />
     <MESSAGE value="forth" />
     <MESSAGE value="fifth" />
-    <option name="LAST_COMMIT_MESSAGE" value="fifth" />
+    <MESSAGE value="sixth" />
+    <option name="LAST_COMMIT_MESSAGE" value="sixth" />
   </component>
 </project>

@@ -4,36 +4,51 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 
-
 import java.io.IOException;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class StockTrackingServiceServer extends StockTrackingServiceGrpc.StockTrackingServiceImplBase {
-
-
+    private Random random = new Random();
+    // simple RPC: Check the inventory status of a specific item
     public void queryStock(StockQueryRequest request, StreamObserver<StockStatus> responseObserver) {
-        // simple RPC: Check the inventory status of a specific item
-        StockStatus status = StockStatus.newBuilder()
-                .setProductId(1)
+        int productId = random.nextInt(100) ;
+        int quantity = random.nextInt(100);
+        String status = determineStatus(quantity);
+        StockStatus currentStatus = StockStatus.newBuilder()
+                .setProductId(productId)
                 .setProductName(request.getProductName())
-                .setCurrentQuantity(99)
-                .setStatus("stock available")
+                .setCurrentQuantity(quantity)
+                .setStatus(status)
                 .build();
-        responseObserver.onNext(status);
+        responseObserver.onNext(currentStatus);
         responseObserver.onCompleted();
     }
 
+    // server-side streaming RPC: Send inventory status regularly
     @Override
     public void subscribeStockUpdates(StockQueryRequest request, StreamObserver<StockStatus> responseObserver) {
-        // server-side streaming RPC: Send inventory status regularly
+        int productId = random.nextInt(100) ;
+        int quantity;
+        int num = 100; // Starting quantity
+
         for (int i = 0; i < 10; i++) {
-            StockStatus status = StockStatus.newBuilder()
-                    .setProductId(1)
+            num = num - random.nextInt(20) ;
+            String status = determineStatus(num);
+
+            if(num >= 0){
+                quantity = num;
+            }else {
+                quantity = 0;
+            }
+
+            StockStatus statusUpdate = StockStatus.newBuilder()
+                    .setProductId(productId)
                     .setProductName(request.getProductName())
-                    .setCurrentQuantity(99 - i * 10)
-                    .setStatus("stock available")
+                    .setCurrentQuantity(quantity)
+                    .setStatus(status)
                     .build();
-            responseObserver.onNext(status);
+            responseObserver.onNext(statusUpdate);
             try {
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
@@ -41,6 +56,16 @@ public class StockTrackingServiceServer extends StockTrackingServiceGrpc.StockTr
             }
         }
         responseObserver.onCompleted();
+    }
+
+    public String determineStatus(int num) {
+        if (num <= 0) {
+            return "out of Stock";
+        } else if (num <= 9) {
+            return "low stock";
+        } else {
+            return "stock available";
+        }
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
