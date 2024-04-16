@@ -40,10 +40,11 @@ public class StockTrackingServiceClient {
         StreamObserver<StockStatus> responseObserver = new StreamObserver<StockStatus>() {
             @Override
             public void onNext(StockStatus value) {
-                System.out.println("Stream response: \nProduct ID: " + value.getProductId()
+                System.out.println("Response: \nProduct ID: " + value.getProductId()
                         + "\nProduct Name: " + value.getProductName()
                         + "\nQuantity: " + value.getCurrentQuantity()
                         + "\nStatus: " + value.getStatus());
+                System.out.println("-------------------------------------------------------");
             }
 
             @Override

@@ -47,10 +47,10 @@ public class OrderServiceClient {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         try {
-            String addMore = "y";
+            String addMore;
             do {
-                System.out.println("Welcome to the smart warehouse ordering platform, " +
-                        "please enter the product information you want to order");
+                System.out.println("Welcome to the smart warehouse ordering platform! " +
+                        "\nPlease enter the product information you want to order");
                 System.out.println("Product ID:");
                 int productId = Integer.parseInt(scanner.nextLine());
                 System.out.println("Product name:");

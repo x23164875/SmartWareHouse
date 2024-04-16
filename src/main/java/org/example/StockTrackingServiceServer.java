@@ -35,12 +35,7 @@ public class StockTrackingServiceServer extends StockTrackingServiceGrpc.StockTr
         for (int i = 0; i < 10; i++) {
             num = num - random.nextInt(20) ;
             String status = determineStatus(num);
-
-            if(num >= 0){
-                quantity = num;
-            }else {
-                quantity = 0;
-            }
+            quantity = Math.max(num, 0);  // Ensure quantity never goes below zero
 
             StockStatus statusUpdate = StockStatus.newBuilder()
                     .setProductId(productId)

@@ -5,6 +5,8 @@ import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class ReplenishmentServiceServer {
@@ -50,14 +52,18 @@ public class ReplenishmentServiceServer {
             return new StreamObserver<ReplenishmentRequest>() {
                 @Override
                 public void onNext(ReplenishmentRequest req) {
-                    System.out.println("Received replenishment request for product ID: " + req.getProductId() + ", Quantity: " + req.getRequiredQuantity());
+                    System.out.println("Received replenishment request for product ID: " +
+                            req.getProductId() + ", ProductName: " + req.getProductName() +
+                                    ", Quantity: " + req.getRequiredQuantity());
 
-                    // Simulate some processing and send back a status
+                    // Calculate estimated arrival time
+                    String estimatedArrival = calculateEstimatedArrival();
+
                     ReplenishmentStatus status = ReplenishmentStatus.newBuilder()
                             .setProductId(req.getProductId())
                             .setProductName(req.getProductName())
                             .setRequiredQuantity(req.getRequiredQuantity())
-                            .setEstimatedArrival("2024-04-25")
+                            .setEstimatedArrival(estimatedArrival)
                             .build();
                     responseObserver.onNext(status);
                 }
@@ -70,6 +76,14 @@ public class ReplenishmentServiceServer {
                 @Override
                 public void onCompleted() {
                     responseObserver.onCompleted();
+                }
+                private String calculateEstimatedArrival() {
+                    // Calculate estimated arrival time
+                    Random random = new Random();
+                    int minDay = (int) LocalDate.of(2024, 4, 21).toEpochDay();
+                    int maxDay = (int) LocalDate.of(2024, 5, 31).toEpochDay();
+                    long randomDay = minDay + random.nextInt(maxDay - minDay);
+                    return LocalDate.ofEpochDay(randomDay).toString();
                 }
             };
         }
