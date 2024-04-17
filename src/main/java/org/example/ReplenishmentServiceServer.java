@@ -13,7 +13,7 @@ public class ReplenishmentServiceServer {
 
     private Server server;
 
-    private void start() throws IOException {
+    public void start() throws IOException {
         int port = 50051;
         server = ServerBuilder.forPort(port)
                 .addService(new ReplenishmentServiceImpl())
@@ -38,7 +38,7 @@ public class ReplenishmentServiceServer {
         }
     }
 
-    private void blockUntilShutdown() throws InterruptedException {
+    public void blockUntilShutdown() throws InterruptedException {
         if (server != null) {
             server.awaitTermination();
         }
@@ -77,7 +77,7 @@ public class ReplenishmentServiceServer {
                 public void onCompleted() {
                     responseObserver.onCompleted();
                 }
-                private String calculateEstimatedArrival() {
+                public String calculateEstimatedArrival() {
                     // Calculate estimated arrival time
                     Random random = new Random();
                     int minDay = (int) LocalDate.of(2024, 4, 21).toEpochDay();
